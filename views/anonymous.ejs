@@ -1,0 +1,320 @@
+<div id="wrapper">
+        <nav class="navbar navbar-default top-navbar" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/main"><strong><i class="icon fa fa-plane"></i>
+                        Report System</strong></a>
+
+                <div id="sideNav" href="">
+                    <i class="fa fa-bars icon"></i>
+                </div>
+            </div>
+
+            <ul class="nav navbar-top-links navbar-right">
+
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="/users/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+        </nav>
+        <!--/. NAV TOP  -->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+
+                    <li>
+                        <a href="/main"><i class="fa fa-dashboard"></i> Home</a>
+                    </li>
+                    <li>
+                        <a href="/reports/mandatory"><i class="fa fa-desktop"></i> Mandatory Report</a>
+                    </li>
+
+                    <li>
+                        <a class="active-menu" href="#"><i class="fa fa-sitemap"></i> Standard Reports<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="/reports/anonymous">Anonymous Report</a>
+                            </li>
+                            <li>
+                                <a href="/reports/normal">Normal Report</a>
+                            </li>
+                            <li>
+                                <a href="/reports/captain">Captain's Report</a>
+                            </li>
+                            <li>
+                                <a href="/reports/maintenance">Maintenance Report</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+
+        </nav>
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper">
+            <div class="header">
+                <h1 class="page-header">
+                    Anonymous Report
+                </h1>
+            </div>
+
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="panel panel-default">
+                            <div class="booking-form">
+                                <form action="/reports/anonymous" method="post">
+
+                                    <div class="row">
+                                    <% include ./partials/messages %>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <span class="form-label">Incident / Accident Title</span>
+                                                <input class="form-control" name="title" type="text" placeholder="Enter Title" required>
+                                            </div>
+        
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <span class="form-label">Occurrence Airport</span>
+                                                <input class="form-control" name="airport" type="text" placeholder="Enter Airport" required>
+                                            </div>
+        
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <span class="form-label">Occurrence Date</span>
+                                                <input class="form-control" name="occur_date" type="date" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h3>Incident / Accident Type:</h3>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <div class="form-checkbox">
+                                                    <label for="Aircraft-FODs-Damage">
+                                                        <input type="checkbox" id="Aircraft-FODs-Damage" value="Aircraft FODs Damage" name="accident_type">
+                                                        <span></span>Aircraft FODs Damage
+                                                    </label>
+                                                </div>
+                                                <div class="form-checkbox">
+                                                    <label for="Aircraft-towing">
+                                                        <input type="checkbox" id="Aircraft-towing" value="Aircraft towing" name="accident_type">
+                                                        <span></span>Aircraft towing
+                                                    </label>
+                                                </div>
+                                                <div class="form-checkbox">
+                                                    <label for="Bird-Strike">
+                                                        <input type="checkbox" id="Bird-Strike" value="Bird Strike" name="accident_type">
+                                                        <span></span>Bird Strike
+                                                    </label>
+                                                </div>
+                                                <div class="form-checkbox">
+                                                    <label for="Continous-service-during-construction">
+                                                        <input type="checkbox" id="Continous-service-during-construction" value="Continous service during construction"
+                                                            name="accident_type">
+                                                        <span></span>Continous service during construction
+                                                    </label>
+                                                </div>
+                                                <div class="form-checkbox">
+                                                    <label for="Cargo-luggage-transport">
+                                                        <input type="checkbox" id="Cargo-luggage-transport" value="Cargo, luggage transport" name="accident_type">
+                                                        <span></span>Cargo, luggage transport
+                                                    </label>
+                                                </div>
+                                                <div class="form-checkbox">
+                                                    <label for="Crew-maintenance-service">
+                                                        <input type="checkbox" id="Crew-maintenance-service" value="Crew maintenance service" name="accident_type">
+                                                        <span></span>Crew maintenance service
+                                                    </label>
+                                                </div>
+                                                <div class="form-checkbox">
+                                                    <label for="Equipment-frailties-failure">
+                                                        <input type="checkbox" id="Equipment-frailties-failure" value="Equipment frailties failure"
+                                                            name="accident_type">
+                                                        <span></span>Equipment, frailties failure
+                                                    </label>
+                                                </div>
+                                                <div class="form-checkbox">
+                                                    <label for="Fire">
+                                                        <input type="checkbox" id="Fire" value="Fire" name="accident_type">
+                                                        <span></span>Fire
+                                                    </label>
+                                                </div>
+                                                <div class="form-checkbox">
+                                                    <label for="Hazardous-goods-transport">
+                                                        <input type="checkbox" id="Hazardous-goods-transport" value="Hazardous goods transport"
+                                                            name="accident_type">
+                                                        <span></span>Hazardous goods transport
+                                                    </label>
+                                                </div>
+        
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <div class="form-checkbox">
+                                                    <label for="Human-injured">
+                                                        <input type="checkbox" id="Human-injured" value="Human injured" name="accident_type">
+                                                        <span></span>Human injured
+                                                    </label>
+                                                </div>
+                                                <div class="form-checkbox">
+                                                    <label for="Navigation-Communication-airport-management-assurance">
+                                                        <input type="checkbox" id="Navigation-Communication-airport-management-assurance" value="Navigation, Communication, airport management assurance"
+                                                            name="accident_type">
+                                                        <span></span>Navigation, Communication, airport management assurance
+                                                    </label>
+                                                </div>
+                                                <div class="form-checkbox">
+                                                    <label for="Operation-area-incursion">
+                                                        <input type="checkbox" id="Operation-area-incursion" value="Operation area incursion" name="accident_type">
+                                                        <span></span>Operation area incursion
+                                                    </label>
+                                                </div>
+                                                <div class="form-checkbox">
+                                                    <label for="Passenger-assurance">
+                                                        <input type="checkbox" id="Passenger-assurance" value="Passenger assurance" name="accident_type">
+                                                        <span></span>Passenger assurance
+                                                    </label>
+                                                </div>
+                                                <div class="form-checkbox">
+                                                    <label for="Runway-incursion">
+                                                        <input type="checkbox" id="Runway-incursion" value="Runway incursion" name="accident_type">
+                                                        <span></span>Runway incursion
+                                                    </label>
+                                                </div>
+        
+                                                <div class="form-checkbox">
+                                                    <label for="Vehicle-and-equipment-collision-with-aircraft">
+                                                        <input type="checkbox" id="Vehicle-and-equipment-collision-with-aircraft" value="Vehicle and equipment collision with aircraft"
+                                                            name="accident_type">
+                                                        <span></span>Vehicle and equipment collision with aircraft
+                                                    </label>
+                                                </div>
+                                                <div class="form-checkbox">
+                                                    <label for="Vehicle-equipment-collision-with-vehicle">
+                                                        <input type="checkbox" id="Vehicle-equipment-collision-with-vehicle" value="Vehicle equipment collision with vehicle"
+                                                            name="accident_type">
+                                                        <span></span>Vehicle, equipment collision with vehicle
+                                                    </label>
+                                                </div>
+                                                <div class="form-checkbox">
+                                                    <label for="Others">
+                                                        <input type="checkbox" id="Others" value="Others" name="accident_type">
+                                                        <span></span>Others
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+        
+                                    <h3>Cause: </h3>
+        
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <div class="form-checkbox">
+                                                    <label for="Crew">
+                                                        <input type="radio" id="Crew" value="Crew" name="cause">
+                                                        <span></span>Crew
+                                                    </label>
+                                                    <label for="Crew-maintenance">
+                                                        <input type="radio" id="Crew-maintenance" value="Crew-maintenance" name="cause">
+                                                        <span></span>Crew maintenance
+                                                    </label>
+                                                    <label for="Ground-service">
+                                                        <input type="radio" id="Ground-service" value="Ground service" name="cause">
+                                                        <span></span>Ground service
+                                                    </label>
+                                                    <label for="Incident">
+                                                        <input type="radio" id="Incident" value="Incident" name="cause">
+                                                        <span></span>Incident
+                                                    </label>
+                                                    <label for="Others-1">
+                                                        <input type="radio" id="Others-1" value="Others" name="cause">
+                                                        <span></span>Others
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+        
+                                    <h3>Number of Persons Injured: </h3>
+        
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <span class="form-label">Death</span>
+                                                <input class="form-control" name="deaths" type="number" placeholder="No." min="0">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <span class="form-label">Injuries</span>
+                                                <input class="form-control" name="injuries" type="number" placeholder="No." min="0">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h3>Description: </h3>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <textarea class="textarea-input" rows="5" name="description" placeholder="Enter Description" required></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-btn">
+                                                <button type="submit" name="submit" class="submit-btn">Submit report</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <!-- /. PAGE INNER  -->
+        </div>
+        <!-- /. PAGE WRAPPER  -->
+    </div>
+    <!-- /. WRAPPER  -->
+    <!-- JS Scripts-->
+    <!-- jQuery Js -->
+    <script src="assets/js/jquery-1.10.2.js"></script>
+    <!-- Bootstrap Js -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- Metis Menu Js -->
+    <script src="assets/js/jquery.metisMenu.js"></script>
+    <script src="assets/js/select2.full.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".selectbox").select2();
+        });
+    </script>
+    <!-- Custom Js -->
+    <script src="assets/js/custom-scripts.js"></script>
+
+

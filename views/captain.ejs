@@ -1,0 +1,226 @@
+<div id="wrapper">
+        <nav class="navbar navbar-default top-navbar" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/main"><strong><i class="icon fa fa-plane"></i>
+                        Report System</strong></a>
+
+                <div id="sideNav" href="">
+                    <i class="fa fa-bars icon"></i>
+                </div>
+            </div>
+
+            <ul class="nav navbar-top-links navbar-right">
+
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="/users/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+        </nav>
+        <!--/. NAV TOP  -->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+
+                    <li>
+                        <a href="/main"><i class="fa fa-dashboard"></i> Home</a>
+                    </li>
+                    <li>
+                        <a href="/reports/mandatory"><i class="fa fa-desktop"></i> Mandatory Report</a>
+                    </li>
+
+                    <li>
+                        <a class="active-menu" href="#"><i class="fa fa-sitemap"></i> Standard Reports<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="/reports/anonymous">Anonymous Report</a>
+                            </li>
+                            <li>
+                                <a href="/reports/normal">Normal Report</a>
+                            </li>
+                            <li>
+                                <a href="/reports/captain">Captain's Report</a>
+                            </li>
+                            <li>
+                                <a href="/reports/maintenance">Maintenance Report</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+
+        </nav>
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper">
+            <div class="header">
+                <h1 class="page-header">
+                    Captain's Trip Report
+                </h1>
+            </div>
+
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="panel panel-default">
+                            <div class="booking-form">
+                                <form method="POST" action="/reports/captain">
+                                    
+                                    <div class="row">
+                                    <% include ./partials/messages %>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <span class="form-label">Flight Date</span>
+                                                <input class="form-control" name="flight_date" type="date" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <span class="form-label">Aircraft</span>
+                                                <input class="form-control" name="aircraft" type="text" placeholder="Enter Aircraft Model">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <span class="form-label">Flight Number</span>
+                                                <input class="form-control" name="flight_number" type="text" placeholder="No.">
+                                            </div>
+        
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <span class="form-label">Crew</span>
+                                                <input class="form-control" name="crew" type="text" placeholder="Eg: Bandara, Malisha, Kushali">
+                                            </div>
+        
+                                        </div>
+                                    </div>
+                                    <h3>Flight Type:</h3>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <div class="form-checkbox">
+                                                    <label for="Freighter">
+                                                        <input type="checkbox" id="Freighter" value="Freighter" name="flight_type">
+                                                        <span></span>Freighter
+                                                    </label>
+                                                </div>
+                                                <div class="form-checkbox">
+                                                    <label for="Passenger">
+                                                        <input type="checkbox" id="Passenger" value="Passenger" name="flight_type">
+                                                        <span></span>Passenger
+                                                    </label>
+                                                </div>
+                                                <div class="form-checkbox">
+                                                    <label for="Charter">
+                                                        <input type="checkbox" id="Charter" value="Charter" name="flight_type">
+                                                        <span></span>Charter
+                                                    </label>
+                                                </div>
+                                                <div class="form-checkbox">
+                                                    <label for="Training">
+                                                        <input type="checkbox" id="Training" value="Training" name="flight_type">
+                                                        <span></span>Training
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+        
+                                    <h3>Irregularities: </h3>
+        
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <div class="form-checkbox">
+                                                    <label for="Yes">
+                                                        <input type="radio" id="Yes" value="Yes" name="irregularities">
+                                                        <span></span>Yes
+                                                    </label>
+                                                    <label for="No">
+                                                        <input type="radio" id="No" value="No" name="irregularities">
+                                                        <span></span>No
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h3>Description: </h3>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <textarea class="form-control" name="description" placeholder="Enter Description" rows="5"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+        
+        
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <span class="form-label">Captain's Name</span>
+                                                <input class="form-control" type="text" name="captain_name" placeholder="Enter Captain's Name">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <span class="form-label">First Officer's Name</span>
+                                                <input class="form-control" type="text" name="officer_name" placeholder="Enter First Officer's Name">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-btn">
+                                                <button type="submit" name="submit" class="submit-btn">Submit report</button>
+                                            </div>
+                                        </div>
+                                    </div>
+        
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <!-- /. PAGE INNER  -->
+        </div>
+        <!-- /. PAGE WRAPPER  -->
+    </div>
+    <!-- /. WRAPPER  -->
+    <!-- JS Scripts-->
+    <!-- jQuery Js -->
+    <script src="assets/js/jquery-1.10.2.js"></script>
+    <!-- Bootstrap Js -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- Metis Menu Js -->
+    <script src="assets/js/jquery.metisMenu.js"></script>
+    <script src="assets/js/select2.full.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".selectbox").select2();
+        });
+    </script>
+    <!-- Custom Js -->
+    <script src="assets/js/custom-scripts.js"></script>

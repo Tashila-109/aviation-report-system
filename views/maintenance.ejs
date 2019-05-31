@@ -1,0 +1,195 @@
+<div id="wrapper">
+        <nav class="navbar navbar-default top-navbar" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/main"><strong><i class="icon fa fa-plane"></i>
+                        Report System</strong></a>
+
+                <div id="sideNav" href="">
+                    <i class="fa fa-bars icon"></i>
+                </div>
+            </div>
+
+            <ul class="nav navbar-top-links navbar-right">
+
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="/users/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+        </nav>
+        <!--/. NAV TOP  -->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+
+                    <li>
+                        <a href="/reports/main"><i class="fa fa-dashboard"></i> Home</a>
+                    </li>
+                    <li>
+                        <a href="/reports/mandatory"><i class="fa fa-desktop"></i> Mandatory Report</a>
+                    </li>
+
+                    <li>
+                        <a class="active-menu" href="#"><i class="fa fa-sitemap"></i> Standard Reports<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="/reports/anonymous">Anonymous Report</a>
+                            </li>
+                            <li>
+                                <a href="/reports/normal">Normal Report</a>
+                            </li>
+                            <li>
+                                <a href="/reports/captain">Captain's Report</a>
+                            </li>
+                            <li>
+                                <a href="/reports/maintenance">Maintenance Report</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+
+        </nav>
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper">
+            <div class="header">
+                <h1 class="page-header">
+                    Maintenance Report
+                </h1>
+            </div>
+
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="panel panel-default">
+                            <div class="booking-form">
+                                <form action="/reports/maintenance" method="POST">
+                                    
+                                    <div class="row">
+                                    <% include ./partials/messages %>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <span class="form-label">Date of Report</span>
+                                                <input class="form-control" name="date" type="date" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <span class="form-label">Reporter</span>
+                                                <input class="form-control" name="reporter" type="text" placeholder="Enter Name">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <span class="form-label">Items Involved</span>
+                                                <input class="form-control" name="items" type="text" placeholder="Eg: Compressor, Fan Blades, Skin">
+                                            </div>
+        
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <span class="form-label">When Problem Detected</span>
+                                                <input class="form-control" name="problem_date" type="date" required>
+                                            </div>
+                                        </div>
+                                    </div>
+        
+                                    <h3>Deferred Maintenance: </h3>
+        
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <div class="form-checkbox">
+                                                    <label for="Yes">
+                                                        <input type="radio" value="Yes" id="Yes" name="deferred">
+                                                        <span></span>Yes
+                                                    </label>
+                                                    <label for="No">
+                                                        <input type="radio" value="No" id="No" name="deferred">
+                                                        <span></span>No
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+        
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <span class="form-label">Outcome</span>
+                                                <input class="form-control" name="outcome" type="text" placeholder="Enter Outcome">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <span class="form-label">Airworthiness</span>
+                                                <input class="form-control" name="airworthiness" type="text" placeholder="Enter Airworthiness">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <span class="form-label">ATA Code</span>
+                                                <input class="form-control" name="ATA_Code" placeholder="Enter ATA Code" type="number" min="0" max="100">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-btn">
+                                                <button name="submit" type="submit" class="submit-btn">Submit report</button>
+                                            </div>
+                                        </div>
+                                    </div>
+        
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <!-- /. PAGE INNER  -->
+        </div>
+        <!-- /. PAGE WRAPPER  -->
+    </div>
+    <!-- /. WRAPPER  -->
+    <!-- JS Scripts-->
+    <!-- jQuery Js -->
+    <script src="assets/js/jquery-1.10.2.js"></script>
+    <!-- Bootstrap Js -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- Metis Menu Js -->
+    <script src="assets/js/jquery.metisMenu.js"></script>
+    <script src="assets/js/select2.full.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".selectbox").select2();
+        });
+    </script>
+    <!-- Custom Js -->
+    <script src="assets/js/custom-scripts.js"></script>
