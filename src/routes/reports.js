@@ -36,8 +36,8 @@ router.post('/mandatory', (req, res) => {
 
     newReport.save()
     .then(report => {
-        sendEmail(newReport.reportName, newReport.date)
-        req.flash('submit_msg', 'Report Submitted!')
+        sendEmail(newReport.reportName, newReport.date, newReport.reportID)
+        req.flash('submit_msg', `Report subimitted successfuly! Report reference number is : ${newReport.reportID}.`)
         res.redirect('/reports/mandatory')
     })
     .catch(err => {
@@ -63,8 +63,8 @@ router.post('/anonymous', (req, res) => {
 
     newReport.save()
     .then(report => {
-        sendEmail(newReport.reportName, newReport.date)
-        req.flash('submit_msg', 'Report Submitted!')
+        sendEmail(newReport.reportName, newReport.date, newReport.reportID)
+        req.flash('submit_msg', `Report subimitted successfuly! Report reference number is : ${newReport.reportID}.`)
         res.redirect('/reports/anonymous')
     })
     .catch(err => {
@@ -92,8 +92,8 @@ router.post('/normal', (req, res) => {
 
     newReport.save()
     .then(report => {
-        sendEmail(newReport.reportName, newReport.date)
-        req.flash('submit_msg', 'Report Submitted!')
+        sendEmail(newReport.reportName, newReport.date, newReport.reportID)
+        req.flash('submit_msg', `Report subimitted successfuly! Report reference number is : ${newReport.reportID}.`)
         res.redirect('/reports/normal')
     })
     .catch(err => {
@@ -120,8 +120,8 @@ router.post('/captain', (req, res) => {
 
     newReport.save()
     .then(report => {
-        sendEmail(newReport.reportName, newReport.date)
-        req.flash('submit_msg', 'Report Submitted!')
+        sendEmail(newReport.reportName, newReport.date, newReport.reportID)
+        req.flash('submit_msg', `Report subimitted successfuly! Report reference number is : ${newReport.reportID}.`)
         res.redirect('/reports/captain')
     })
     .catch(err => {
@@ -147,8 +147,8 @@ router.post('/maintenance', (req, res) => {
 
     newReport.save()
     .then(report => {
-        sendEmail(newReport.reportName, newReport.date)
-        req.flash('submit_msg', 'Report Submitted!')
+        sendEmail(newReport.reportName, newReport.date, newReport.reportID)
+        req.flash('submit_msg', `Report subimitted successfuly! Report reference number is : ${newReport.reportID}.`)
         res.redirect('/reports/maintenance')
     })
     .catch(err => {

@@ -1,6 +1,11 @@
 const mongoose = require('mongoose')
+const shortid = require('shortid')
 
 const MandatorySchema = new mongoose.Schema({
+    reportID: {
+        type: String,
+        default: shortid.generate
+    },
     reportName: {
         type: String,
         default: 'Mandatory Report'
@@ -23,6 +28,10 @@ const MandatorySchema = new mongoose.Schema({
 })
 
 const AnonymousSchema = new mongoose.Schema({
+    reportID: {
+        type: String,
+        default: shortid.generate
+    },
     reportName: {
         type: String,
         default: 'Anonymous Report'
@@ -66,6 +75,10 @@ const AnonymousSchema = new mongoose.Schema({
 })
 
 const NormalSchema = new mongoose.Schema({
+    reportID: {
+        type: String,
+        default: shortid.generate
+    },
     reportName: {
         type: String,
         default: 'Normal Report'
@@ -117,6 +130,10 @@ const NormalSchema = new mongoose.Schema({
 })
 
 const CaptainSchema = new mongoose.Schema({
+    reportID: {
+        type: String,
+        default: shortid.generate
+    },
     reportName: {
         type: String,
         default: 'Captain Report'
@@ -162,6 +179,10 @@ const CaptainSchema = new mongoose.Schema({
 })
 
 const MaintenanceSchema = new mongoose.Schema({
+    reportID: {
+        type: String,
+        default: shortid.generate
+    },
     reportName: {
         type: String,
         default: 'Maintenance Report'
