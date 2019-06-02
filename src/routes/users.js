@@ -3,11 +3,13 @@ const router = express.Router()
 const bcrypt = require('bcryptjs')
 const passport = require('passport')
 
+
 // User Model
 const User = require('../models/User')
 
 // Login Page
 router.get('/login', (req, res) => res.render('login'))
+
 
 // Register Page
 router.get('/register', (req, res) => res.render('register'))
@@ -88,6 +90,7 @@ router.post('/register', (req, res) => {
                         // Set password to hashed
                         newUser.password = hash;
 
+
                         // Save user
                         newUser.save()
                         .then( user => {
@@ -95,6 +98,7 @@ router.post('/register', (req, res) => {
                             res.redirect('/users/login')
                         })
                         .catch(err => console.log(err))
+
                     }))
                 }
             })
@@ -108,7 +112,9 @@ router.post('/login', (req, res, next) => {
         failureRedirect: '/users/login',
         failureFlash: true
     })(req, res, next)
+
 })
+
 
 // Logout Handle
 router.get('/logout', (req, res) => {

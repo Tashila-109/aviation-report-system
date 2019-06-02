@@ -73,6 +73,8 @@ app.use(express.json())
 app.use('/', require('./routes/index'))
 app.use('/users', require('./routes/users'))
 app.use('/reports', require('./routes/reports'))
+// app.use('/admin', require('./routes/admin'))
+
 
 
 const port = process.env.PORT

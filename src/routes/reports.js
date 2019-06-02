@@ -6,7 +6,7 @@ const { sendEmail } = require('../emails/account')
 
 
 // Report Model
-const { Mandatory, Anonymous, Normal, Captain, Maintenance }= require('../models/Report')
+const Report = require('../models/Report')
 
 // Mandatory Report Page
 router.get('/mandatory', ensureAuthenticated, (req, res) => res.render('mandatory', { layout: 'layout-main' }))
@@ -27,11 +27,13 @@ router.get('/maintenance', ensureAuthenticated, (req, res) => res.render('mainte
 
 // Mandatory Report Handle
 router.post('/mandatory', (req, res) => {
+    const reportName = 'Mandatory Report'
     const { name, incidents, description } = req.body
-    const newReport = new Mandatory({
+    const newReport = new Report({
+        reportName,
         name,
         incidents,
-        description
+        description,
     })
 
     newReport.save()
@@ -49,8 +51,11 @@ router.post('/mandatory', (req, res) => {
 
 // Anonymous Report Handle
 router.post('/anonymous', (req, res) => {
+    const reportName = 'Anonymous Report'
+
     const { title, airport, occur_date, accident_type, cause, deaths, injuries, description } = req.body
-    const newReport = new Anonymous({
+    const newReport = new Report({
+        reportName,
         title,
         airport,
         occur_date,
@@ -76,8 +81,11 @@ router.post('/anonymous', (req, res) => {
 
 // Normal Report Handle
 router.post('/normal', (req, res) => {
+    const reportName = 'Normal Report'
+
     const { name, company, title, airport, occur_date, accident_type, cause, deaths, injuries, description } = req.body
-    const newReport = new Normal({
+    const newReport = new Report({
+        reportName,
         name,
         company,
         title,
@@ -105,8 +113,11 @@ router.post('/normal', (req, res) => {
 
 // Captain's Report Handle
 router.post('/captain', (req, res) => {
+    const reportName = 'Captain Report'
+
     const { flight_date, aircraft, flight_number,  crew, flight_type, irregularities, description, captain_name, officer_name } = req.body
-    const newReport = new Captain({
+    const newReport = new Report({
+        reportName,
         flight_date,
         aircraft,
         flight_number,
@@ -133,8 +144,11 @@ router.post('/captain', (req, res) => {
 
 // Maintenance Report Handle
 router.post('/maintenance', (req, res) => {
+    const reportName = 'Maintenance Report'
+
     const { date, reporter, items, problem_date, deferred, outcome, airworthiness, ATA_Code } = req.body
-    const newReport = new Maintenance({
+    const newReport = new Report({
+        reportName,
         date,
         reporter,
         items,
