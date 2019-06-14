@@ -7,7 +7,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/main"><strong><i class="icon fa fa-plane"></i>
+            <a class="navbar-brand" href=""><strong><i class="icon fa fa-plane"></i>
                     AVReport</strong></a>
 
             <div id="sideNav" href="">
@@ -37,7 +37,7 @@
             <ul class="nav" id="main-menu">
 
                 <li>
-                    <a class="active-menu" href="/main"><i class="fa fa-dashboard"></i> Home</a>
+                    <a  href="/main"><i class="fa fa-dashboard"></i> Home</a>
                 </li>
                 <li>
                     <a href="/reports/mandatory"><i class="fa fa-desktop"></i> Mandatory Report</a>
@@ -67,7 +67,7 @@
                     <a href="/reports"><i class="fa fa-book"></i>View Submitted Reports</a>
                 </li>
                 <li>
-                    <a  href="/noticeboard"><i class="fa fa-clipboard"></i>Notice board</a>
+                    <a class="active-menu" href="/noticeboard"><i class="fa fa-clipboard"></i>Notice board</a>
                 </li>
             </ul>
 
@@ -78,60 +78,26 @@
 
     <div id="page-wrapper" class="img-back">
         <div class="header">
+        <% include ./partials/messages %>
             <h1 class="page-header">
-                Welcome to the Aviation Report System
+                Notice Board
             </h1>
 
         </div>
+        
         <div id="page-inner">
-
-            <div class="row">
-                <div class="col-md-12">
-
-                </div>
-            </div>
-
-
-            <div class="row">
-                <div class="col-md-6 col-sm-12 col-xs-12 col-md-offset-3">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Submit A Report
-                        </div>
-                        <div style="text-align: center; margin-bottom: 20px; margin-top: 20px" class="container-fluid">
-                            <a href="/reports/mandatory" type="button" class="btn btn-danger btn-lg btn-block">Mandatory
-                                Report</a>
-                        </div>
-                        <div style="text-align: center; margin-bottom: 5px; margin-top: 80px" class="container-fluid">
-                            <h2 >Standard Reports</h2>
-                        </div>
-                        <div style="text-align: center; margin-bottom: 30px; margin-top: 30px" class="container-fluid">
-                            <a href="/reports/anonymous" type="button" class="btn btn-success btn-lg btn-block ">Anonymous
-                                Report</a>
-                        </div>
-                        <div style="text-align: center; margin-bottom: 30px; margin-top: 30px" class="container-fluid">
-                            <a href="/reports/normal" type="button" class="btn btn-primary btn-lg btn-block ">Normal
-                                Report</a>
-                        </div>
-                        <div style="text-align: center; margin-bottom: 30px; margin-top: 30px" class="container-fluid">
-                            <a href="/reports/captain" type="button" class="btn btn-primary btn-lg btn-block ">Captain's
-                                Report</a>
-                        </div>
-                        <div style="text-align: center; margin-bottom: 30px; margin-top: 30px" class="container-fluid">
-                            <a href="/reports/maintenance" type="button"
-                                class="btn btn-primary btn-lg btn-block ">Maintenance Report</a>
-                        </div>
-                        <div style="text-align: center; margin-bottom: 30px; margin-top: 30px" class="container-fluid">
-                            <a href="/reports/personal" type="button"
-                                class="btn btn-primary btn-lg btn-block ">Personal Report</a>
-                        </div>
-                    </div>
-
-                </div>
-                
-            </div>
-            <!-- /. ROW  -->
-
+        <% comments.forEach(function(comment) { %>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+                <div class="panel-heading"><%= comment.subject %></div>
+                <div class="panel-body"><%= comment.description %></div>
+                <div class="panel-footer">Report Ref No. : <%= comment.reportID %></div>
+                </div> 
+            </div>    
+        </div>
+        <% });%>
+         
         </div>
         <!-- /. PAGE INNER  -->
     </div>

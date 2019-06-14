@@ -2,11 +2,27 @@ const express = require('express')
 const router = express.Router()
 const { ensureAuthenticated } = require('../../config/auth')
 
+// Comment Model
+const Comment = require('../models/Comment')
+
 // Welcome Page
 router.get('/', (req, res) => res.render('welcome'))
 
 // Main Page
 router.get('/main', ensureAuthenticated, (req, res) => res.render('main', { layout: 'layout-home' }))
+
+// Noticeboard (Comments) Page
+router.get('/noticeboard', ensureAuthenticated, (req, res) => {
+    Comment.find({})
+    .sort({date:'desc'})
+    .then( comments => {
+        res.render('noticeboard', {
+            comments: comments,
+            layout: 'layout-home'
+        })
+    })
+})
+
 
 // Mandatory report Page
 //router.get('/mandatory', ensureAuthenticated, (req, res) => res.render('mandatory', { layout: 'layout-main' }))

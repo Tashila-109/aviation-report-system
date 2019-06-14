@@ -1,6 +1,7 @@
 const path = require('path')
 const express = require('express')
 const expressLayouts = require('express-ejs-layouts')
+const methodOverride = require('method-override')
 const mongoose = require('mongoose')
 const flash = require('connect-flash')
 const session = require('express-session')
@@ -11,8 +12,7 @@ const app = express()
 // Passport Config
 require('../config/passport')(passport)
 
-// DB config - use later for production
-const db = require('../config/keys').MongoURI
+
 
 // Connect to Mongo
 mongoose.connect(process.env.MONGODB_URL, {
@@ -35,6 +35,9 @@ app.set('view engine', 'ejs')
 app.use(express.urlencoded({
     extended: false
 }))
+
+//Method override middleware
+app.use(methodOverride('_method'));
 
 // Express Session middleware
 app.use(
@@ -62,8 +65,7 @@ app.use((req, res, next) => {
     res.locals.error = req.flash('error')
     res.locals.submit_msg = req.flash('submit_msg')
     res.locals.submit_error_msg = req.flash('submit_error_msg')
-
-
+    res.locals.user = req.user || null
 
     next()
 })
@@ -73,9 +75,8 @@ app.use(express.json())
 app.use('/', require('./routes/index'))
 app.use('/users', require('./routes/users'))
 app.use('/reports', require('./routes/reports'))
-// app.use('/admin', require('./routes/admin'))
-
-
+app.use('/admin', require('./routes/admin'))
+app.use('/departments', require('./routes/departments'))
 
 const port = process.env.PORT
 

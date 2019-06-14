@@ -1,0 +1,184 @@
+<div id="wrapper">
+    <nav class="navbar navbar-default top-navbar" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" aria-expanded="false" data-toggle="collapse" data-target=".sidebar-collapse" >
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"><strong><i class="icon fa fa-plane"></i>
+                    AVReport</strong></a>
+
+            <div id="sideNav" href="">
+                <i class="fa fa-bars icon"></i>
+            </div>
+        </div>
+
+        <ul class="nav navbar-top-links navbar-right">
+
+            <!-- /.dropdown -->
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                    <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li><a href="/users/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    </li>
+                </ul>
+                <!-- /.dropdown-user -->
+            </li>
+            <!-- /.dropdown -->
+        </ul>
+    </nav>
+    <!--/. NAV TOP  -->
+   <nav class="navbar-default navbar-side" role="navigation">
+        <div class="collapse sidebar-collapse">
+            <ul class="nav" id="main-menu">
+
+                <li>
+                    <a  href="/admin/dashboard"><i class="fa fa-dashboard"></i>Dashboard</a>
+                </li>
+                <li>
+                    <a class="active-menu" href="/admin/reports"><i class="fa fa-desktop"></i>View Report Summaries</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+    <!-- /. NAV SIDE  -->
+
+    <div id="page-wrapper" class="img-back">
+        <div class="header">
+            <h1 class="page-header">
+                Send to Department Head
+            </h1>
+            <% include ./partials/messages %>
+
+        </div>
+        <div id="page-inner">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="panel panel-default">
+                            <div class="booking-form">
+                                <form action="/admin/department?_method=PUT" method="POST">
+                                   <input type="hidden" name="_method" value="PUT">
+                                    <div class="row">
+                                    <% include ./partials/messages %>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <span class="form-label">Report Ref No.</span>
+                                                <input class="form-control" name="reportID" type="text"
+                                                    placeholder="Enter Report Ref No." required>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <h3>Department: </h3>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <div class="form-checkbox">
+                                                    <label for="Head-of-Quality-Assurance">
+                                                        <input type="checkbox" value="Head of Quality Assurance" id="Head-of-Quality-Assurance" name="department">
+                                                        <span></span>Head of Quality Assurance
+                                                    </label>
+                                                    <label for="Head-of-Engineering-and-Maintenance">
+                                                        <input type="checkbox" value="Head of Engineering and Maintenance" id="Head-of-Engineering-and-Maintenance" name="department">
+                                                        <span></span>Head of Engineering and Maintenance
+                                                    </label>
+                                                    <label for="Head-of-Flight-Operations-and-Training">
+                                                        <input type="checkbox" value="Head of Engineering and Head of Flight Operations and Training" id="Head-of-Engineering-and-Head-of-Flight-Operations-and-Training" name="department">
+                                                        <span></span>Head of Flight Operations and Training
+                                                    </label>
+                                                    <label for="Head-of-Aviation-Security-and-Airport-Services">
+                                                        <input type="checkbox" value="Head of Aviation Security and Airport Services" id="Head-of-Aviation-Security-and-Airport-Services" name="department">
+                                                        <span></span>Head of Aviation Security and Airport Services
+                                                    </label>
+                                                    <label for="Head-of-Human-Resources">
+                                                        <input type="checkbox" value="Head of Human Resources" id="Head-of-Human-Resources" name="department">
+                                                        <span></span>Head of Human Resources
+                                                    </label>
+                                                    <label for="Head-of-Purchasing">
+                                                        <input type="checkbox" value="Head of Purchasing" id="Head-of-Purchasing" name="department">
+                                                        <span></span>Head of Purchasing
+                                                    </label>
+                                                    <label for="Head-of-Finance">
+                                                        <input type="checkbox" value="Head of Finance" id="Head-of-Finance" name="department">
+                                                        <span></span>Head of Finance
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <h3>Report Priority: </h3>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <div class="form-checkbox">
+                                                    <label for="Urgent">
+                                                        <input type="radio" value="Urgent" id="Urgent" name="priority">
+                                                        <span></span>Urgent
+                                                    </label>
+                                                    <label for="Respond-Soon">
+                                                        <input type="radio" value="Respond Soon" id="Respond-Soon" name="priority">
+                                                        <span></span>Respond Soon
+                                                    </label>
+                                                    <label for="Low-Priority">
+                                                        <input type="radio" value="Low Priority" id="Low-Priority" name="priority">
+                                                        <span></span>Low Priority
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-btn">
+                                                <button type="submit" name="submit" class="submit-btn">Send report</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        <!-- /. PAGE INNER  -->
+    </div>
+    <!-- /. PAGE WRAPPER  -->
+</div>
+<!-- /. WRAPPER  -->
+<!-- JS Scripts-->
+<!-- jQuery Js -->
+<script src="/assets/js/jquery-1.10.2.js"></script>
+<!-- Bootstrap Js -->
+<script src="/assets/js/bootstrap.min.js"></script>
+
+<!-- Metis Menu Js -->
+<script src="/assets/js/jquery.metisMenu.js"></script>
+<!-- Morris Chart Js -->
+<script src="/assets/js/morris/raphael-2.1.0.min.js"></script>
+<script src="/assets/js/morris/morris.js"></script>
+
+
+<script src="/assets/js/easypiechart.js"></script>
+<script src="/assets/js/easypiechart-data.js"></script>
+
+<script src="/assets/js/Lightweight-Chart/jquery.chart.js"></script>
+
+<!-- Custom Js -->
+<script src="/assets/js/custom-scripts.js"></script>
+
+<!-- Chart Js -->
+<script type="/text/javascript" src="assets/js/Chart.min.js"></script>
+<script type="/text/javascript" src="assets/js/chartjs.js"></script>
+

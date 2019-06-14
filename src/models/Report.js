@@ -76,6 +76,9 @@ const ReportSchema = new mongoose.Schema({
     officer_name: {
         type: String,
     },
+    dateReport: {
+        type: Date
+    },
     reporter: {
         type: String,
     },
@@ -96,8 +99,26 @@ const ReportSchema = new mongoose.Schema({
     },
     ATA_Code: {
         type: Number,
+    },
+    user: {
+        type: String,
+        required: true
+    },
+    attended: {
+        type: Boolean,
+        default: false
+    },
+    department: [{
+        type: String,
+
+    }],
+    priority: {
+        type: String
+    },
+    action: {
+        type: String
     }
- 
+
 })
 
 // const AnonymousSchema = new mongoose.Schema({
@@ -297,9 +318,5 @@ const ReportSchema = new mongoose.Schema({
 
 
 const Report = mongoose.model('Report', ReportSchema)
-// const Anonymous = mongoose.model('Anonymous_Report', AnonymousSchema)
-// const Normal = mongoose.model('Normal_Report', NormalSchema)
-// const Captain = mongoose.model('Captain_Report', CaptainSchema)
-// const Maintenance = mongoose.model('Maintenance_Report', MaintenanceSchema)
 
 module.exports = Report

@@ -23,6 +23,18 @@ router.get('/captain', ensureAuthenticated, (req, res) => res.render('captain', 
 // Maintenance Report Page
 router.get('/maintenance', ensureAuthenticated, (req, res) => res.render('maintenance', { layout: 'layout-main' }))
 
+// Personal Report Page
+router.get('/personal', ensureAuthenticated, (req, res) => res.render('personal', { layout: 'layout-main' }))
+
+
+// View Reports
+router.get('/', ensureAuthenticated, (req, res) => {
+    Report.find({user: req.user.id})
+    .sort({date:'desc'})
+    .then(reports => {
+        res.render('reports', {reports: reports, layout: 'layout-home'})
+    })
+})
 
 
 // Mandatory Report Handle
@@ -34,6 +46,7 @@ router.post('/mandatory', (req, res) => {
         name,
         incidents,
         description,
+        user: req.user.id
     })
 
     newReport.save()
@@ -63,7 +76,8 @@ router.post('/anonymous', (req, res) => {
         cause,
         deaths,
         injuries,
-        description
+        description,
+        user: req.user.id
     })
 
     newReport.save()
@@ -95,7 +109,8 @@ router.post('/normal', (req, res) => {
         cause,
         deaths,
         injuries,
-        description
+        description,
+        user: req.user.id
     })
 
     newReport.save()
@@ -126,7 +141,8 @@ router.post('/captain', (req, res) => {
         irregularities,
         description,
         captain_name,
-        officer_name
+        officer_name,
+        user: req.user.id
     })
 
     newReport.save()
@@ -146,17 +162,18 @@ router.post('/captain', (req, res) => {
 router.post('/maintenance', (req, res) => {
     const reportName = 'Maintenance Report'
 
-    const { date, reporter, items, problem_date, deferred, outcome, airworthiness, ATA_Code } = req.body
+    const { dateReport, reporter, items, problem_date, deferred, outcome, airworthiness, ATA_Code } = req.body
     const newReport = new Report({
+        dateReport,
         reportName,
-        date,
         reporter,
         items,
         problem_date,
         deferred,
         outcome,
         airworthiness,
-        ATA_Code
+        ATA_Code,
+        user: req.user.id
     })
 
     newReport.save()
@@ -169,6 +186,30 @@ router.post('/maintenance', (req, res) => {
         console.log(err)
         req.flash('submit_error_msg', 'Form Subbmission Error. Required Fields are missing.')
         res.redirect('/reports/maintenance')
+    })
+})
+
+// Personal Report Handle
+router.post('/personal', (req, res) => {
+    const reportName = 'Personal Report'
+    const { name, description } = req.body
+    const newReport = new Report({
+        reportName,
+        name,
+        description,
+        user: req.user.id
+    })
+
+    newReport.save()
+    .then(report => {
+        sendEmail(newReport.reportName, newReport.date, newReport.reportID)
+        req.flash('submit_msg', `Report subimitted successfuly! Report reference number is : ${newReport.reportID}.`)
+        res.redirect('/reports/personal')
+    })
+    .catch(err => {
+        console.log(err)
+        req.flash('submit_error_msg', 'Form Subbmission Error. Required Fields are missing.')
+        res.redirect('/reports/personal')
     })
 })
 
