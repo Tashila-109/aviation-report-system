@@ -42,7 +42,7 @@ router.put('/action', ensureAuthenticated, (req, res) => {
         report.save()
         .then(report => {
             req.flash('submit_msg', 'Report Sent');
-            res.redirect('/admin/reports');
+            res.redirect('/departments/action');
         })
     })
 })
