@@ -140,49 +140,49 @@ router.post("/adminLogin", (req, res, next) => {
 
 // HOD Login
 router.post("/headLogin", (req, res, next) => {
-  if (req.body.email === "hoqa@gmail.com" && req.body.password === "123456") {
+  if (req.body.email === "mapperera@fitsair.com" && req.body.password === "avreport@123") {
     passport.authenticate("local", {
       successRedirect: "/departments/qualityAssurance",
       failureRedirect: "/users/headLogin",
       failureFlash: true
     })(req, res, next);
   }
-  else if (req.body.email === "hoem@gmail.com" && req.body.password === "123456") {
+  else if (req.body.email === "wijesiri@fitsair.com" && req.body.password === "avreport@123") {
     passport.authenticate("local", {
       successRedirect: "/departments/engineering",
       failureRedirect: "/users/headLogin",
       failureFlash: true
     })(req, res, next);
   }
-  else if (req.body.email === "hofot@gmail.com" && req.body.password === "123456") {
+  else if (req.body.email === "duke@fitsair.com" && req.body.password === "avreport@123") {
     passport.authenticate("local", {
       successRedirect: "/departments/flightOperations",
       failureRedirect: "/users/headLogin",
       failureFlash: true
     })(req, res, next);
   }
-  else if (req.body.email === "hoasas@gmail.com" && req.body.password === "123456") {
+  else if (req.body.email === "sanjaya@fitsair.com" && req.body.password === "avreport@123") {
     passport.authenticate("local", {
       successRedirect: "/departments/aiportServices",
       failureRedirect: "/users/headLogin",
       failureFlash: true
     })(req, res, next);
   }
-  else if (req.body.email === "hohr@gmail.com" && req.body.password === "123456") {
+  else if (req.body.email === "chenli@fitsair.com" && req.body.password === "avreport@123") {
     passport.authenticate("local", {
       successRedirect: "/departments/humanResources",
       failureRedirect: "/users/headLogin",
       failureFlash: true
     })(req, res, next);
   }
-  else if (req.body.email === "hop@gmail.com" && req.body.password === "123456") {
+  else if (req.body.email === "bimba@fitsair.com" && req.body.password === "avreport@123") {
     passport.authenticate("local", {
       successRedirect: "/departments/purchasing",
       failureRedirect: "/users/headLogin",
       failureFlash: true
     })(req, res, next);
   }
-  else if (req.body.email === "hof@gmail.com" && req.body.password === "123456") {
+  else if (req.body.email === "ramzy@fitsair.com" && req.body.password === "avreport@123") {
     passport.authenticate("local", {
       successRedirect: "/departments/finance",
       failureRedirect: "/users/headLogin",
