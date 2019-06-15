@@ -89,9 +89,19 @@
                             <div class="booking-form">
                                 <form action="/reports/anonymous" method="post">
 
-                                    <div class="row">
+                                <div class="row">
                                     <% include ./partials/messages %>
-                                        <div class="col-md-12">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <span class="form-label">Report Title</span>
+                                                <input class="form-control" name="reportTitle" type="text" placeholder="Enter Title" required>
+                                            </div>
+        
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <span class="form-label">Incident / Accident Title</span>
                                                 <input class="form-control" name="title" type="text" placeholder="Enter Title" required>
@@ -288,6 +298,68 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <textarea class="textarea-input" rows="5" name="description" placeholder="Enter Description" required></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <h3>Likelihood of a similar occurrence happening again: </h3>
+        
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <div class="form-checkbox">
+                                                    <label for="Very-Unlikely">
+                                                        <input type="radio" id="Very-Unlikely" value="Very Unlikely" name="likelihood">
+                                                        <span></span>Very Unlikely
+                                                    </label>
+                                                    <label for="Unlikely">
+                                                        <input type="radio" id="Unlikely" value="Unlikely" name="likelihood">
+                                                        <span></span>Unlikely
+                                                    </label>
+                                                    <label for="Likely">
+                                                        <input type="radio" id="Likely" value="Likely" name="likelihood">
+                                                        <span></span>Likely
+                                                    </label>
+                                                    <label for="Very-Likely">
+                                                        <input type="radio" id="Very-Likely" value="Very Likely" name="likelihood">
+                                                        <span></span>Very Likely
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <h3>Severity of Consequence: </h3>
+        
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <div class="form-checkbox">
+                                                    <label for="Minor">
+                                                        <input type="radio" id="Minor" value="Minor" name="consequences">
+                                                        <span></span>Minor
+                                                    </label>
+                                                    <label for="Major">
+                                                        <input type="radio" id="Major" value="Major" name="consequences">
+                                                        <span></span>Major
+                                                    </label>
+                                                    <label for="Hazardous">
+                                                        <input type="radio" id="Hazardous" value="Hazardous" name="consequences">
+                                                        <span></span>Hazardous
+                                                    </label>
+                                                    <label for="Catastrophic">
+                                                        <input type="radio" id="Catastrophic" value="Catastrophic" name="consequences">
+                                                        <span></span>Catastrophic
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h3>Suggestions to eliminate, reduce or control hazard: </h3>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <textarea class="textarea-input" rows="5" name="hazardControl" placeholder="Enter Suggestion" required></textarea>
                                             </div>
                                         </div>
                                     </div>

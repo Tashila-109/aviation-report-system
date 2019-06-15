@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const { ensureAuthenticated } = require('../../config/auth')
-const { sendEmail } = require('../emails/account')
+const { sendEmail, sendNotify } = require('../emails/account')
 
 
 
@@ -26,6 +26,9 @@ router.get('/maintenance', ensureAuthenticated, (req, res) => res.render('mainte
 // Personal Report Page
 router.get('/personal', ensureAuthenticated, (req, res) => res.render('personal', { layout: 'layout-main' }))
 
+// Renotify Page
+router.get('/renotify', ensureAuthenticated, (req, res) => res.render('renotify', { layout: 'layout-main' }))
+
 
 // View Reports
 router.get('/', ensureAuthenticated, (req, res) => {
@@ -36,12 +39,21 @@ router.get('/', ensureAuthenticated, (req, res) => {
     })
 })
 
+// Renotify Reports
+router.post('/renotify', (req, res) => {
+    const { reportID, description } = req.body
+    sendNotify(reportID, description)
+    req.flash('submit_msg', `Notification has been sent with regards to Report reference number: ${reportID}.`)
+    res.redirect('/reports')
+})
+
 
 // Mandatory Report Handle
 router.post('/mandatory', (req, res) => {
     const reportName = 'Mandatory Report'
-    const { name, incidents, description } = req.body
+    const {reportTitle, name, incidents, description } = req.body
     const newReport = new Report({
+        reportTitle,
         reportName,
         name,
         incidents,
@@ -66,8 +78,9 @@ router.post('/mandatory', (req, res) => {
 router.post('/anonymous', (req, res) => {
     const reportName = 'Anonymous Report'
 
-    const { title, airport, occur_date, accident_type, cause, deaths, injuries, description } = req.body
+    const { reportTitle, title, airport, occur_date, accident_type, cause, deaths, injuries, description, hazardControl, likelihood, consequences } = req.body
     const newReport = new Report({
+        reportTitle,
         reportName,
         title,
         airport,
@@ -77,6 +90,9 @@ router.post('/anonymous', (req, res) => {
         deaths,
         injuries,
         description,
+        hazardControl,
+        likelihood,
+        consequences,
         user: req.user.id
     })
 
@@ -97,8 +113,9 @@ router.post('/anonymous', (req, res) => {
 router.post('/normal', (req, res) => {
     const reportName = 'Normal Report'
 
-    const { name, company, title, airport, occur_date, accident_type, cause, deaths, injuries, description } = req.body
+    const { reportTitle, name, company, title, airport, occur_date, accident_type, cause, deaths, injuries, description, hazardControl, likelihood, consequences } = req.body
     const newReport = new Report({
+        reportTitle,
         reportName,
         name,
         company,
@@ -110,6 +127,9 @@ router.post('/normal', (req, res) => {
         deaths,
         injuries,
         description,
+        hazardControl,
+        likelihood,
+        consequences,
         user: req.user.id
     })
 
@@ -130,8 +150,9 @@ router.post('/normal', (req, res) => {
 router.post('/captain', (req, res) => {
     const reportName = 'Captain Report'
 
-    const { flight_date, aircraft, flight_number,  crew, flight_type, irregularities, description, captain_name, officer_name } = req.body
+    const { reportTitle, flight_date, aircraft, flight_number,  crew, flight_type, irregularities, description, captain_name, officer_name, likelihood, } = req.body
     const newReport = new Report({
+        reportTitle,
         reportName,
         flight_date,
         aircraft,
@@ -142,6 +163,7 @@ router.post('/captain', (req, res) => {
         description,
         captain_name,
         officer_name,
+        likelihood,
         user: req.user.id
     })
 
@@ -162,8 +184,9 @@ router.post('/captain', (req, res) => {
 router.post('/maintenance', (req, res) => {
     const reportName = 'Maintenance Report'
 
-    const { dateReport, reporter, items, problem_date, deferred, outcome, airworthiness, ATA_Code } = req.body
+    const { reportTitle, dateReport, reporter, items, problem_date, deferred, outcome, airworthiness, ATA_Code, hazardControl, likelihood } = req.body
     const newReport = new Report({
+        reportTitle,
         dateReport,
         reportName,
         reporter,
@@ -173,6 +196,8 @@ router.post('/maintenance', (req, res) => {
         outcome,
         airworthiness,
         ATA_Code,
+        hazardControl,
+        likelihood,
         user: req.user.id
     })
 
@@ -192,8 +217,9 @@ router.post('/maintenance', (req, res) => {
 // Personal Report Handle
 router.post('/personal', (req, res) => {
     const reportName = 'Personal Report'
-    const { name, description } = req.body
+    const { reportTitle, name, description } = req.body
     const newReport = new Report({
+        reportTitle,
         reportName,
         name,
         description,

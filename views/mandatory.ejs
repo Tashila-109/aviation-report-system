@@ -89,9 +89,19 @@
                         <div class="panel panel-default">
                             <div class="booking-form">
                                 <form action="/reports/mandatory" method="POST">
+                                <div class="row">
+                                    <% include ./partials/messages %>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <span class="form-label">Report Title</span>
+                                                <input class="form-control" name="reportTitle" type="text"
+                                                    placeholder="Enter Title" required>
+                                            </div>
+
+                                        </div>
+                                    </div>
                                    
                                     <div class="row">
-                                    <% include ./partials/messages %>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <span class="form-label">Name</span>

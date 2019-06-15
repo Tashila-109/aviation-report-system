@@ -88,9 +88,18 @@
                         <div class="panel panel-default">
                             <div class="booking-form">
                                 <form action="/reports/maintenance" method="POST">
+                                <div class="row">
+                                    <% include ./partials/messages %>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <span class="form-label">Report Title</span>
+                                                <input class="form-control" name="reportTitle" type="text" placeholder="Enter Title" required>
+                                            </div>
+        
+                                        </div>
+                                    </div>
                                     
                                     <div class="row">
-                                    <% include ./partials/messages %>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <span class="form-label">Date of Report</span>
@@ -142,6 +151,23 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <h3>Airworthiness: </h3>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <div class="form-checkbox">
+                                                    <label for="Yes2">
+                                                        <input type="radio" value="Yes" id="Yes2" name="airworthiness">
+                                                        <span></span>Yes
+                                                    </label>
+                                                    <label for="No2">
+                                                        <input type="radio" value="No" id="No2" name="airworthiness">
+                                                        <span></span>No
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
         
                                     <div class="row">
                                         <div class="col-md-12">
@@ -151,19 +177,47 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <span class="form-label">Airworthiness</span>
-                                                <input class="form-control" name="airworthiness" type="text" placeholder="Enter Airworthiness">
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <span class="form-label">ATA Code</span>
                                                 <input class="form-control" name="ATA_Code" placeholder="Enter ATA Code" type="number" min="0" max="100">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h3>Likelihood of a similar occurrence happening again: </h3>
+        
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <div class="form-checkbox">
+                                                    <label for="Very-Unlikely">
+                                                        <input type="radio" id="Very-Unlikely" value="Very Unlikely" name="likelihood">
+                                                        <span></span>Very Unlikely
+                                                    </label>
+                                                    <label for="Unlikely">
+                                                        <input type="radio" id="Unlikely" value="Unlikely" name="likelihood">
+                                                        <span></span>Unlikely
+                                                    </label>
+                                                    <label for="Likely">
+                                                        <input type="radio" id="Likely" value="Likely" name="likelihood">
+                                                        <span></span>Likely
+                                                    </label>
+                                                    <label for="Very-Likely">
+                                                        <input type="radio" id="Very-Likely" value="Very Likely" name="likelihood">
+                                                        <span></span>Very Likely
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <h3>Suggestions to eliminate, reduce or control hazard: </h3>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <textarea class="textarea-input" rows="5" name="hazardControl" placeholder="Enter Suggestion" required></textarea>
                                             </div>
                                         </div>
                                     </div>

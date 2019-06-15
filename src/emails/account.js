@@ -13,6 +13,16 @@ const sendEmail = (reportName, date, reportID) => {
     })
 }
 
+const sendNotify = (reportID, description) => {
+    sgMail.send({
+        to: 'starbuks1298@gmail.com',
+        from: 'avreportsys@gmail.com',
+        subject: `Renotification for Report Ref No : ${reportID}`,
+        text: `${description}`
+    })
+}
+
 module.exports = {
-    sendEmail
+    sendEmail,
+    sendNotify
 }

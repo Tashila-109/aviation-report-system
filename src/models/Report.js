@@ -10,6 +10,10 @@ const ReportSchema = new mongoose.Schema({
         type: String,
         default: 'Report'
     },
+    reportTitle: {
+        type: String,
+        required: true
+    },
     name: {
         type: String,
         
@@ -116,6 +120,15 @@ const ReportSchema = new mongoose.Schema({
         type: String
     },
     action: {
+        type: String
+    },
+    hazardControl: {
+        type: String
+    },
+    likelihood: {
+        type: String
+    },
+    consequences: {
         type: String
     }
 

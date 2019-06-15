@@ -44,7 +44,7 @@
                     </li>
 
                     <li>
-                        <a class="active-menu" href="#"><i class="fa fa-sitemap"></i> Standard Reports<span class="fa arrow"></span></a>
+                        <a  href="#"><i class="fa fa-sitemap"></i> Standard Reports<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="/reports/anonymous">Anonymous Report</a>
@@ -64,7 +64,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="/reports"><i class="fa fa-book"></i>View Submitted Reports</a>
+                        <a class="active-menu" href="/reports"><i class="fa fa-book"></i>View Submitted Reports</a>
                     </li>
                     <li>
                     <a  href="/noticeboard"><i class="fa fa-clipboard"></i>Notice board</a>
@@ -88,24 +88,15 @@
                     <div class="col-xs-12">
                         <div class="panel panel-default">
                             <div class="booking-form">
-                                <form action="/reports/personal" method="POST">
-                                <div class="row">
+                                <form action="/reports/renotify" method="POST">
+                                   
+                                    <div class="row">
                                     <% include ./partials/messages %>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <span class="form-label">Report Title</span>
-                                                <input class="form-control" name="reportTitle" type="text" placeholder="Enter Title" required>
-                                            </div>
-        
-                                        </div>
-                                    </div>
-                                   
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <span class="form-label">Name</span>
-                                                <input class="form-control" name="name" type="text"
-                                                    placeholder="Enter Name" required>
+                                                <span class="form-label">Report Reference No.</span>
+                                                <input class="form-control" name="reportID" type="text"
+                                                    placeholder="Enter Report Ref No." required>
                                             </div>
 
                                         </div>

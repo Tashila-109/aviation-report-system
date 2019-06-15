@@ -76,7 +76,7 @@
     </nav>
     <!-- /. NAV SIDE  -->
 
-    <div id="page-wrapper" class="img-back">
+    <div id="page-wrapper" class="img-back" style="background-image: url('');">
         <div class="header">
             <h1 class="page-header">
                 Welcome to the Aviation Report System
@@ -92,7 +92,7 @@
             </div>
 
 
-            <div class="row">
+            <%# <div class="row">
                 <div class="col-md-6 col-sm-12 col-xs-12 col-md-offset-3">
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -129,8 +129,119 @@
 
                 </div>
                 
-            </div>
+            </div> %>
             <!-- /. ROW  -->
+            <div class="row">
+                    <div class="col-md-6 col-sm-12 col-xs-12">                   
+                        <div class="board">
+                        <a href="/reports/mandatory">
+                            <div class="panel panel-primary">
+                                <div class="number">
+                                    <h3>
+                                        <h3 style="text-transform: uppercase;">Mandatory Report</h3>
+                                        <small style="text-transform: capitalize;">To be submitted monthly</small>
+                                    </h3>
+                                </div>
+                                <div class="icon">
+                                    <i class="fa fa-clipboard fa-5x red"></i>
+                                </div>
+                            </div>
+                            </a>
+                        </div>                       
+                    </div>
+
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                        <div class="board">
+                        <a href="/reports/anonymous">
+                            <div class="panel panel-primary">
+                                <div class="number">
+                                    <h3>
+                                        <h3 style="text-transform: uppercase;">Anonymous Report</h3>
+                                        <small style="text-transform: capitalize;">Report without credentials</small>
+                                    </h3>
+                                </div>
+                                <div class="icon">
+                                    <i class="fa fa-book fa-5x blue"></i>
+                                </div>
+
+                            </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                        <div class="board">
+                        <a href="/reports/normal">
+                            <div class="panel panel-primary">
+                                <div class="number">
+                                    <h3>
+                                        <h3 style="text-transform: uppercase;">Normal Report</h3>
+                                        <small style="text-transform: capitalize;">generic report</small>
+                                    </h3>
+                                </div>
+                                <div class="icon">
+                                    <i class="fa fa-book fa-5x green"></i>
+                                </div>
+                            </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                        <div class="board">
+                        <a href="/reports/captain">
+                            <div class="panel panel-primary">
+                                <div class="number">
+                                    <h3>
+                                        <h3 style="text-transform: uppercase;">Captains Report</h3>
+                                        <small style="text-transform: capitalize;">flight operational complications</small>
+                                    </h3>
+                                </div>
+                                <div class="icon">
+                                    <i class="fa fa-plane fa-5x yellow"></i>
+                                </div>
+                            </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                        <div class="board">
+                        <a href="/reports/maintenance">
+                            <div class="panel panel-primary">
+                                <div class="number">
+                                    <h3>
+                                        <h3 style="text-transform: uppercase;">Maintenance Report</h3>
+                                        <small style="text-transform: capitalize;">maintenance risks and hazards</small>
+                                    </h3>
+                                </div>
+                                <div class="icon">
+                                    <i class="fa fa-plane fa-5x green"></i>
+                                </div>
+                            </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                        <div class="board">
+                        <a href="/reports/personal">
+                            <div class="panel panel-primary">
+                                <div class="number">
+                                    <h3>
+                                        <h3 style="text-transform: uppercase;">Personal Report</h3>
+                                        <small style="text-transform: capitalize;">any personal issues</small>
+                                    </h3>
+                                </div>
+                                <div class="icon">
+                                    <i class="fa fa-user fa-5x red"></i>
+                                </div>
+                            </div>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
 
         </div>
         <!-- /. PAGE INNER  -->
