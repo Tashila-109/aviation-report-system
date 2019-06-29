@@ -8,7 +8,7 @@
     "dev": "env-cmd --file ./env/dev.env nodemon src/app.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "KK Chamath Aachinthya",
   "license": "ISC",
   "dependencies": {
     "@sendgrid/mail": "^6.4.0",
